@@ -1,11 +1,11 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import type { BaseImage, ClothingItem } from '../types';
 
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable not set");
+if (!import.meta.env.VITE_API_KEY) {
+  throw new Error("VITE_API_KEY environment variable not set. Please create a .env file and add your key.");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
 
 const fileToGenerativePart = (base64: string, mimeType: string) => {
   return {

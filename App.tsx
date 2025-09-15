@@ -3,6 +3,7 @@ import type { BaseImage, ClothingItem } from './types';
 import { ImageUploader } from './components/ImageUploader';
 import { runVirtualTryOn, generatePlaceholderImage } from './services/geminiService';
 import { Tutorial } from './components/Tutorial';
+import { Footer } from './components/Footer';
 
 const Header: React.FC = () => (
   <header className="py-4 px-4 sm:px-8 border-b border-zinc-700 bg-zinc-900 flex items-center justify-between">
@@ -151,9 +152,9 @@ const App: React.FC = () => {
   const canGenerate = useMemo(() => userImage && !isLoading, [userImage, isLoading]);
 
   return (
-    <div className="min-h-screen text-zinc-200 font-sans bg-gray-800">
+    <div className="min-h-screen text-zinc-200 font-sans bg-gray-800 flex flex-col">
       <Header />
-      <main className="p-4 sm:p-8">
+      <main className="p-4 sm:p-8 flex-grow">
         {showTutorial && <Tutorial onDismiss={() => setShowTutorial(false)} />}
         {error && (
           <div className="bg-red-900/20 border border-red-500 text-red-300 px-4 py-3 rounded-xl relative mb-6" role="alert">
@@ -240,6 +241,7 @@ const App: React.FC = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
