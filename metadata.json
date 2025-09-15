@@ -1,0 +1,5 @@
+{
+  "name": "FitThat.Me - Virtual Try-On",
+  "description": "An AI-powered virtual dressing room. Upload your photo and pictures of clothes to see how they fit on you without ever leaving your home. Powered by Gemini.",
+  "requestFramePermissions": []
+}
